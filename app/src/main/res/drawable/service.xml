@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer Shadow -->
+    <item>
+        <shape>
+            <solid android:color="#15000000" /> <!-- Light black shadow color -->
+            <corners android:radius="8dp" /> <!-- Adjust the radius as needed -->
+        </shape>
+    </item>
+
+    <!-- Background Shape -->
+    <item
+        android:left="0dp"
+        android:right="3dp"
+        android:top="0dp"
+        android:bottom="3dp">
+        <shape>
+            <solid android:color="#eee" />
+            <corners android:radius="8dp" /> <!-- Adjust the radius as needed -->
+        </shape>
+    </item>
+
+</layer-list>

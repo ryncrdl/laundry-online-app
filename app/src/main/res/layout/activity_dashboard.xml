@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textColor="@color/textColor1"
+        android:background="@color/primaryColor"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:paddingVertical="20dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/wc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Online Laundry"
+        android:layout_below="@+id/dashboard"
+        android:textColor="@color/textColor1"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:paddingVertical="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/servicesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services"
+        android:layout_below="@id/wc"
+        android:textStyle="bold"
+        android:textColor="@color/textColor1"
+        android:textSize="23dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"/>
+
+    <HorizontalScrollView
+        android:id="@+id/serviceContainer"
+        android:layout_below="@+id/servicesTitle"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginVertical="10dp">
+
+            <RelativeLayout
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Wash/Dry/Fold"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t1"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 70/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Wash/Dry/Press"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t2"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 90/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Hand Wash/Fold/Press"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t3"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 90/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Rush Laundry"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t4"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 120/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Premium Dry Cleaning"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t5"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 100/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service"
+                android:padding="10dp"
+                android:layout_marginHorizontal="5dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/t6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Standard Wash/Fold"
+                    android:textColor="@color/textColor1"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/t6"
+                    android:layout_marginLeft="5dp"
+                    android:text="Price: 100/kg"
+                    android:textColor="@color/textColor1"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Booking"
+        android:background="@drawable/bg"
+        android:layout_below="@+id/serviceContainer"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginVertical="20dp"
+        android:id="@+id/btnSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:background="@drawable/bg"
+        android:layout_below="@+id/btnBooking"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginVertical="20dp"
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:background="@drawable/redbg"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

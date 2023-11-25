@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Booking.BookingActivity"
+    >
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/lbltitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:maxLines="2"
+        android:text="BOOKING"
+        android:paddingVertical="20dp"
+        android:background="@color/primaryColor"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/textColor1"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/icon"
+        android:layout_gravity="center"
+        android:layout_marginVertical="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/textColor1"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/dateSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/custom_input"
+        android:padding="15dp"
+        android:theme="@style/Theme.AppCompat.Light"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Service"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/servicesSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/custom_input"
+        android:padding="15dp"
+        android:layout_marginBottom="20dp"
+        android:theme="@style/Theme.AppCompat.Light"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Payment"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/paymentMethodGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/cash"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:textColor="@color/black"
+            android:text="Cash" />
+
+        <RadioButton
+            android:id="@+id/gcash"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:textColor="@color/black"
+            android:text="GCash" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick up or Delivery"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/pickupOrDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/pickUp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:textColor="@color/black"
+            android:text="Pick up" />
+
+        <RadioButton
+            android:id="@+id/delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:textColor="@color/black"
+            android:text="Delivery" />
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Booking"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/bg"
+        android:textSize="16dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Dashboard"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/bg"
+        android:layout_marginTop="10dp"
+        android:textSize="14dp"
+        android:textColor="@color/textColor1"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"
+        />
+</LinearLayout>
+    </ScrollView>
