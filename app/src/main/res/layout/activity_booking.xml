@@ -47,13 +47,16 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <Spinner
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dateSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/custom_input"
         android:padding="15dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:text="Select Date"
         android:theme="@style/Theme.AppCompat.Light"
         android:layout_marginBottom="20dp"
         />
@@ -77,6 +80,38 @@
         android:layout_marginBottom="20dp"
         android:theme="@style/Theme.AppCompat.Light"
         />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Unit"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/textColor1"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/selectQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/kg"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:textColor="@color/black"
+                android:text="Per Kg" />
+
+            <RadioButton
+                android:id="@+id/pack"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:textColor="@color/black"
+                android:text="Per Package" />
+        </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
