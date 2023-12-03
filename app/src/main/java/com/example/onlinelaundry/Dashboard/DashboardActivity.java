@@ -13,12 +13,13 @@ import com.example.onlinelaundry.Booking.BookingActivity;
 import com.example.onlinelaundry.Login.LoginActivity;
 import com.example.onlinelaundry.R;
 import com.example.onlinelaundry.Settings.SettingsActivity;
+import com.example.onlinelaundry.Status.StatusActivity;
 
 public class DashboardActivity  extends AppCompatActivity {
 
     private TextView wc;
     private String accountId;
-    private AppCompatButton btnLogout, btnBooking, btnSettings;
+    private AppCompatButton btnLogout, btnBooking, btnSettings,btnStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,10 @@ public class DashboardActivity  extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         btnBooking = findViewById(R.id.btnBooking);
         btnSettings = findViewById(R.id.btnSetting);
+        btnStatus = findViewById(R.id.btnBookStatus);
+
+        btnStatus.setOnClickListener(view-> startActivity(new Intent(this, StatusActivity.class)));
+
 
         btnSettings.setOnClickListener(view ->{
             startActivity(new Intent(this, SettingsActivity.class));

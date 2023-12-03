@@ -158,6 +158,27 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="10dp"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your permanent address"
+            android:textColor="@color/textColor1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="40dp"
+            />
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
+            android:hint="Address"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            />
         <FrameLayout
             android:id="@+id/uploadContainer"
             android:layout_width="match_parent"

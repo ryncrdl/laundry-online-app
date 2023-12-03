@@ -7,7 +7,8 @@ import java.util.List;
 
 public class AccountResponse implements Parcelable{
     private String _id;
-    private String fullName, username, email, contact, validId;
+    private String fullName, username, email, contact, validId, rfidNo;
+    private Boolean verify;
     protected AccountResponse(Parcel in) {
         _id = in.readString();
         fullName = in.readString();
@@ -15,7 +16,8 @@ public class AccountResponse implements Parcelable{
         email = in.readString();
         contact = in.readString();
         validId = in.readString();
-
+        rfidNo = in.readString();
+        verify = in.readBoolean();
     }
 
     public static final Parcelable.Creator<AccountResponse> CREATOR = new Parcelable.Creator<AccountResponse>() {
@@ -43,6 +45,8 @@ public class AccountResponse implements Parcelable{
         dest.writeString(email);
         dest.writeString(contact);
         dest.writeString(validId);
+        dest.writeString(rfidNo);
+        dest.writeBoolean(verify);
     }
 
     public String get_id() {
@@ -67,7 +71,10 @@ public class AccountResponse implements Parcelable{
     public String getValidId() {
         return validId;
     }
-
+    public String getRfidNo() {
+        return rfidNo;
+    }
+    public Boolean getVerify(){ return verify;}
 
 
 }

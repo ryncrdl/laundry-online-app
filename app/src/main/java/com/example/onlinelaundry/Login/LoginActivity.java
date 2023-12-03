@@ -18,7 +18,13 @@ import com.example.onlinelaundry.Dashboard.DashboardActivity;
 import com.example.onlinelaundry.R;
 import com.example.onlinelaundry.Registration.RegistrationActivity;
 import com.example.onlinelaundry.Utils.LoadingDialog;
+import com.example.onlinelaundry.Utils.ModalMessage;
 import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -98,8 +104,29 @@ public class LoginActivity  extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                 } else {
                     setLoggedInStatus(false);
+                    if(!response.errorBody().equals(null)){
+                        try {
+                            String errorResponse = response.errorBody().string();
+                            JSONObject jsonObject = new JSONObject(errorResponse);
+                            if (jsonObject.has("message")) {
+                                if (response.code() == 403) {
+                                    String errorMessage = jsonObject.getString("message");
+                                    ModalMessage dialog = new ModalMessage(LoginActivity.this);
+                                    dialog.setMessage(errorMessage);
+                                    dialog.setOkayButton("Okay", view -> {
+                                        dialog.dismiss();
+                                    });
+                                    dialog.show();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (IOException | JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(LoginActivity.this, "Error processing response.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                     loadingDialog.hide();
-                    Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                 }
 
             }

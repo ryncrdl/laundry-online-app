@@ -22,6 +22,7 @@ import com.example.onlinelaundry.Login.LoginActivity;
 import com.example.onlinelaundry.R;
 import com.example.onlinelaundry.Utils.ImageConverter;
 import com.example.onlinelaundry.Utils.LoadingDialog;
+import com.example.onlinelaundry.Utils.ModalMessage;
 import com.example.onlinelaundry.Utils.Validation;
 import com.google.gson.JsonObject;
 
@@ -43,7 +44,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private AppCompatButton btnRegister, btnUpload;
     private ImageView imgValidId;
     private TextView btnLogin;
-    private EditText txtFullName, txtUsername, txtPassword, txtConfirmPassword, txtEmail, txtContact;
+    private EditText txtFullName, txtUsername, txtPassword, txtConfirmPassword, txtEmail, txtContact, txtAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
         txtConfirmPassword = findViewById(R.id.confirmPassword);
         txtEmail = findViewById(R.id.email);
         txtContact = findViewById(R.id.contactNumber);
-
+        txtAddress = findViewById(R.id.address);
         btnLogin.setOnClickListener(view->{
             startActivity(new Intent(this, LoginActivity.class));
         });
@@ -79,8 +80,8 @@ public class RegistrationActivity extends AppCompatActivity {
             String confirmPassword = txtConfirmPassword.getText().toString().trim().toLowerCase();
             String email = txtEmail.getText().toString().trim().toLowerCase();
             String contact = txtContact.getText().toString().trim().toLowerCase();
-
-            validateDetails(fullName, username, password, confirmPassword, email, contact);
+            String address = txtAddress.getText().toString().trim().toLowerCase();
+            validateDetails(fullName, username, password, confirmPassword, email, contact, address);
         });
     }
 
@@ -112,8 +113,8 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-    private void validateDetails(String fullName, String username, String password, String confirmPassword, String email, String contact) {
-        if(fullName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty() || contact.isEmpty()){
+    private void validateDetails(String fullName, String username, String password, String confirmPassword, String email, String contact, String address) {
+        if(fullName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty() || contact.isEmpty() || address.isEmpty()){
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
         }else if (fullName.length() < 5) {
             Toast.makeText(this, "Full name must be at least 5 characters", Toast.LENGTH_SHORT).show();
@@ -131,11 +132,11 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Select Valid ID.", Toast.LENGTH_SHORT).show();
         }else{
             String imgString = ImageConverter.encodeImageToBase64JPEG(imgValidId);
-            createAccount(imgString, fullName,username,password,email,contact);
+            createAccount(imgString, fullName,username,password,email,contact, address);
         }
     }
 
-    private void createAccount(String imgString, String fullName, String username, String password, String email, String contact) {
+    private void createAccount(String imgString, String fullName, String username, String password, String email, String contact, String address) {
         LoadingDialog loadingDialog = new LoadingDialog(this);
         loadingDialog.show();
 
@@ -149,6 +150,8 @@ public class RegistrationActivity extends AppCompatActivity {
         jsonObject.addProperty("email", email);
         jsonObject.addProperty("contact", contact);
         jsonObject.addProperty("validId", imgString);
+        jsonObject.addProperty("rfidNo", "");
+        jsonObject.addProperty("verify", false);
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonObject.toString());
 
@@ -157,9 +160,17 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CreateAccount> call, Response<CreateAccount> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(RegistrationActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                     loadingDialog.hide();
+                    ModalMessage messageDialog = new ModalMessage(RegistrationActivity.this);
+                    messageDialog.setMessage("Your Account has been verifying\nPlease wait for approval.");
+
+                    messageDialog.setOkayButton("Okay", v -> {
+                        messageDialog.dismiss();
+                       finish();
+                       onBackPressed();
+                    });
+
+                    messageDialog.show();
 
                 } else {
                     loadingDialog.hide();

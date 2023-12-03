@@ -1,8 +1,11 @@
 package com.example.onlinelaundry.Api;
 
+import com.example.onlinelaundry.Booking.BookingResponse;
 import com.example.onlinelaundry.Booking.CreateBooking;
 import com.example.onlinelaundry.Login.AccountResponse;
 import com.example.onlinelaundry.Registration.CreateAccount;
+
+import java.util.List;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -30,4 +33,7 @@ public interface ApiEndpoints {
     //Booking
     @POST("app/application-0-lpuiw/endpoint/createBooking")
     Call<CreateBooking> createBooking(@Body RequestBody requestBody);
+
+    @POST("app/application-0-lpuiw/endpoint/getBookingById")
+    Call<List<BookingResponse>> getBooking(@Body RequestBody requestBody);
 }
